@@ -8,44 +8,44 @@
 import UIKit
 import SwiftUI
 
+//enum SECTION_TYPE: String, CaseIterable {
+//    case PaymentMethod
+//    case CardInfo
+//}
+//
+//struct Container<T> {
+//    let value : T?
+//    let sectionType: SECTION_TYPE
+//}
+
+struct PaymentModel {
+    let title: String?
+    let placeholder: String?
+    var placeholderYYYY: String?
+}
+
 class ViewController: UIViewController {
   
-  lazy var tableView: UITableView = {
-    let tableView = UITableView(frame: .zero, style: .insetGrouped)
-    tableView.delegate = self
-    tableView.dataSource = self
-    return tableView
-  }()
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var paymentModel : [PaymentModel] = [
+    
+        PaymentModel(title: "Number", placeholder: "Required"),
+        PaymentModel(title: "Expires", placeholder: "MM",placeholderYYYY: "YYYY"),
+        PaymentModel(title: "CVV", placeholder: "Security code"),
+    
+    ]
     
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    setUpConstraint()
-    setUpTableView()
-    
   }
   
-  private func setUpTableView() {
+    @objc func openScanCard(_ sender: UIButton) {
+        print("Clicked!")
+    }
     
-    tableView.translatesAutoresizingMaskIntoConstraints = false
-    tableView.register(YourCustomTableCell.self, forCellReuseIdentifier: YourCustomTableCell.identifier)
-    // Default Cell of UITableView
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-  }
-  
-  private func setUpConstraint() {
-    view.addSubview(tableView)
-    
-    NSLayoutConstraint.activate([
-    
-      tableView.topAnchor.constraint(equalTo: view.topAnchor),
-      tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-      tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
-      tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-    
-    ])
-  }
-  
    
 }
 
@@ -56,15 +56,15 @@ extension ViewController : UITableViewDelegate , UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 3 // Number of rows in each section
+      return paymentModel.count // Number of rows in each section
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: YourCustomTableCell.identifier, for: indexPath) as! YourCustomTableCell
-//    cell.textLabel?.text = "Section \(indexPath.section), Row \(indexPath.row)"
-    if indexPath.row != 0 {
-      cell.cameraButton.isHidden = true
-    }
+      guard let cell = tableView.dequeueReusableCell(withIdentifier: "YourCustomTableCell", for: indexPath) as? YourCustomTableCell else { return UITableViewCell()}
+      
+      cell.cameraButton.addTarget(self, action: #selector(openScanCard), for: .touchUpInside)
+      cell.configCell(data: paymentModel[indexPath.row],indexPath: indexPath)
+      
     return cell
   }
   
@@ -85,69 +85,44 @@ extension ViewController : UITableViewDelegate , UITableViewDataSource {
 }
 
 class YourCustomTableCell: UITableViewCell {
-  
-  static let identifier  = "YourCustomTableCell"
-  
-  // Create the camera icon button
-  let cameraButton = UIButton(type: .system)
-  
-  let leftTitleLabel    = UILabel()
-  
-  let inputTextField = UITextField()
-  
-  let stackViewCover = UIStackView()
-  
-  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-    super.init(style: style, reuseIdentifier: reuseIdentifier)
-    setupUI()
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
-  private func setupUI() {
     
-    leftTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-    inputTextField.translatesAutoresizingMaskIntoConstraints = false
-    cameraButton.translatesAutoresizingMaskIntoConstraints = false
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var monthTF: UITextField!
+    @IBOutlet weak var yearTF: UITextField!
     
-    leftTitleLabel.text = "Number"
-//    leftTitleLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+    @IBOutlet weak var slashLabel: UILabel!
     
-    inputTextField.placeholder = "Required"
-    inputTextField.textAlignment = .left
+    @IBOutlet weak var cameraButton: UIButton!
     
-  
-    cameraButton.setImage(UIImage(systemName: "camera.fill"), for: .normal)
-    cameraButton.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     
-    // Create the stack view
-    let stackView = UIStackView(arrangedSubviews: [leftTitleLabel, inputTextField, cameraButton])
-    stackView.axis = .horizontal
-    stackView.alignment = .center
-    stackView.spacing = 8
-    stackView.translatesAutoresizingMaskIntoConstraints = false
+    func configCell(data: PaymentModel, indexPath: IndexPath) {
+        titleLabel.text = data.title
+        monthTF.placeholder = data.placeholder
+        yearTF.placeholder = data.placeholderYYYY
+        monthTF.keyboardType = .numberPad
+        monthTF.returnKeyType = .next
+        yearTF.keyboardType = .numberPad
+        cameraButton.isHidden = indexPath.row != 0
+        if indexPath.row != 1 {
+            slashLabel.isHidden = true
+            yearTF.isHidden = true
+        } else {
+            slashLabel.isHidden = false
+            yearTF.isHidden = false
+        }
+    }
     
-    contentView.addSubview(stackView)
-      
-    NSLayoutConstraint.activate([
-      
-      inputTextField.leadingAnchor.constraint(equalTo: leftTitleLabel.trailingAnchor, constant:10),
-      
-      stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-      stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-      stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-    ])
-  }
-  
 }
 
 
 struct ViewController_Preview: PreviewProvider {
   static var previews: some View {
     PreviewContainer {
-      ViewController()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateInitialViewController() as? ViewController else {
+            fatalError("Cannot load ViewController from Main storyboard.")
+        }
+      return vc
     }
   }
 }
