@@ -1,0 +1,15 @@
+{
+  "originHash" : "a9644f0625b7db1f7670bfdd56094fa2eadaef8b4340450756a79b3b02258877",
+  "pins" : [
+    {
+      "identity" : "ios-shark-utils",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/gymshark/ios-shark-utils.git",
+      "state" : {
+        "revision" : "aef1ed76f2d69b8be1c0a0ed664dfad2fd55aa1f",
+        "version" : "1.0.6"
+      }
+    }
+  ],
+  "version" : 3
+}
