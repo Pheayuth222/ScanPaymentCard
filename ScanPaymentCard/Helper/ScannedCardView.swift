@@ -23,7 +23,8 @@ internal final class ScannedCardView: UIView {
     
     lazy var numberLabel = UILabel().withFixed(height: 28).with {
         $0.textColor = .white
-        $0.font = styling.cardNumberLabelStyling.font
+//        $0.font = styling.cardNumberLabelStyling.font
+        $0.font = UIFont(name: "OCR-A BT", size: 28)
         $0.textAlignment = .center
         $0.adjustsFontSizeToFitWidth = true
     }
@@ -33,7 +34,8 @@ internal final class ScannedCardView: UIView {
     
     lazy var expiryLabel = UILabel().withFixed(height: 16).with {
         $0.textColor = .white
-        $0.font = styling.expiryLabelStyling.font
+//        $0.font = styling.expiryLabelStyling.font
+        $0.font = UIFont(name: "OCR-A BT", size: 16)
         $0.textAlignment = .right
     }
     private let holderStackView = UIStackView()

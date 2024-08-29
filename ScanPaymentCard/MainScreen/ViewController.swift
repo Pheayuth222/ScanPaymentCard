@@ -165,6 +165,8 @@ class YourCustomTableCell: UITableViewCell {
             slashLabel.isHidden = false
             yearTF.isHidden = false
         }
+        monthTF.font = UIFont(name: "OCR-A BT", size: 20)
+        yearTF.font = UIFont(name: "OCR-A BT", size: 20)
     }
     
 }
