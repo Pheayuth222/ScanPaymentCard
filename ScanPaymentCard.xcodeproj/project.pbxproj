@@ -8,24 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		525E5F022C7CCD1E00FBAECF /* PreviewUIKit+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525E5F012C7CCD1E00FBAECF /* PreviewUIKit+.swift */; };
+		BF7A7B902C80554200D8427E /* SharkUtils in Frameworks */ = {isa = PBXBuildFile; productRef = BF7A7B8F2C80554200D8427E /* SharkUtils */; };
+		BF7A7B922C805DD400D8427E /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A7B912C805DD400D8427E /* DateExtensions.swift */; };
+		BF7A7B942C805F5A00D8427E /* ScannedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A7B932C805F5A00D8427E /* ScannedCardView.swift */; };
 		BFBB44522C3B907400A2CBB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB44512C3B907400A2CBB0 /* AppDelegate.swift */; };
 		BFBB44542C3B907400A2CBB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB44532C3B907400A2CBB0 /* SceneDelegate.swift */; };
 		BFBB44562C3B907400A2CBB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB44552C3B907400A2CBB0 /* ViewController.swift */; };
 		BFBB44592C3B907400A2CBB0 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BFBB44582C3B907400A2CBB0 /* Base */; };
 		BFBB445B2C3B907600A2CBB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFBB445A2C3B907600A2CBB0 /* Assets.xcassets */; };
 		BFBB445E2C3B907600A2CBB0 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = BFBB445D2C3B907600A2CBB0 /* Base */; };
-		BFBE54B72C7DC3B90027814A /* SharkUtils in Frameworks */ = {isa = PBXBuildFile; productRef = BFBE54B62C7DC3B90027814A /* SharkUtils */; };
 		BFBE54B92C7DC4820027814A /* CustomProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE54B82C7DC4820027814A /* CustomProtocols.swift */; };
 		BFBE54BB2C7DC55B0027814A /* CameraAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE54BA2C7DC55B0027814A /* CameraAccess.swift */; };
-		BFBE54BD2C7DCA7A0027814A /* CardCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE54BC2C7DCA7A0027814A /* CardCheck.swift */; };
 		BFBE54BF2C7DCAA60027814A /* Extension+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE54BE2C7DCAA60027814A /* Extension+.swift */; };
 		BFBE54C12C7DD40D0027814A /* SharkCardScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE54C02C7DD40D0027814A /* SharkCardScanVC.swift */; };
+		BFC5D16D2C8031A30057D657 /* CardScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC5D16C2C8031A30057D657 /* CardScanner.swift */; };
+		BFC5D1702C8034120057D657 /* CardScanVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC5D16F2C8034120057D657 /* CardScanVM.swift */; };
+		BFC5D1722C8034F90057D657 /* PixelBufferStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC5D1712C8034F90057D657 /* PixelBufferStream.swift */; };
+		BFC5D1742C8037090057D657 /* LayoutContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC5D1732C8037090057D657 /* LayoutContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		52380A942C4B8F9C004A546C /* Hello.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Hello.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		525E5F012C7CCD1E00FBAECF /* PreviewUIKit+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewUIKit+.swift"; sourceTree = "<group>"; };
 		529441182C3EBE8E0080E59E /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		BF6B69122C7F17E7004021F4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF7A7B912C805DD400D8427E /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		BF7A7B932C805F5A00D8427E /* ScannedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedCardView.swift; sourceTree = "<group>"; };
 		BFBB444E2C3B907400A2CBB0 /* ScanPaymentCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanPaymentCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFBB44512C3B907400A2CBB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFBB44532C3B907400A2CBB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,12 +40,15 @@
 		BFBB44582C3B907400A2CBB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BFBB445A2C3B907600A2CBB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFBB445D2C3B907600A2CBB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BFBB445F2C3B907600A2CBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFBE54B82C7DC4820027814A /* CustomProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProtocols.swift; sourceTree = "<group>"; };
 		BFBE54BA2C7DC55B0027814A /* CameraAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAccess.swift; sourceTree = "<group>"; };
-		BFBE54BC2C7DCA7A0027814A /* CardCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCheck.swift; sourceTree = "<group>"; };
 		BFBE54BE2C7DCAA60027814A /* Extension+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+.swift"; sourceTree = "<group>"; };
 		BFBE54C02C7DD40D0027814A /* SharkCardScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharkCardScanVC.swift; sourceTree = "<group>"; };
+		BFC5D16C2C8031A30057D657 /* CardScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScanner.swift; sourceTree = "<group>"; };
+		BFC5D16F2C8034120057D657 /* CardScanVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScanVM.swift; sourceTree = "<group>"; };
+		BFC5D1712C8034F90057D657 /* PixelBufferStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelBufferStream.swift; sourceTree = "<group>"; };
+		BFC5D1732C8037090057D657 /* LayoutContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutContentView.swift; sourceTree = "<group>"; };
+		BFD7D3D52C7EDE9C00F8DDFB /* TestingCode.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestingCode.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFBE54B72C7DC3B90027814A /* SharkUtils in Frameworks */,
+				BF7A7B902C80554200D8427E /* SharkUtils in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +66,15 @@
 		525E5F002C7CCD1100FBAECF /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				BFBE54BE2C7DCAA60027814A /* Extension+.swift */,
-				BFBE54BA2C7DC55B0027814A /* CameraAccess.swift */,
+				BFC8BAF42C7ECF5F00894CBB /* Extension+ */,
 				52E010802C4F465C00BF9A99 /* Styling */,
-				525E5F012C7CCD1E00FBAECF /* PreviewUIKit+.swift */,
-				BFBE54BC2C7DCA7A0027814A /* CardCheck.swift */,
+				BFC5D16E2C8033F30057D657 /* CardScanVM */,
+				BFC5D1712C8034F90057D657 /* PixelBufferStream.swift */,
+				BFC5D1732C8037090057D657 /* LayoutContentView.swift */,
+				BFC5D16C2C8031A30057D657 /* CardScanner.swift */,
+				BFBE54BA2C7DC55B0027814A /* CameraAccess.swift */,
 				BFBE54C02C7DD40D0027814A /* SharkCardScanVC.swift */,
+				BF7A7B932C805F5A00D8427E /* ScannedCardView.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -93,18 +106,60 @@
 		BFBB44502C3B907400A2CBB0 /* ScanPaymentCard */ = {
 			isa = PBXGroup;
 			children = (
+				BF6B69122C7F17E7004021F4 /* Info.plist */,
+				BFD7D3D22C7ED13D00F8DDFB /* AppDelegate */,
+				BFD7D3D32C7ED14C00F8DDFB /* Resource */,
 				525E5F002C7CCD1100FBAECF /* Helper */,
-				BFBB44512C3B907400A2CBB0 /* AppDelegate.swift */,
-				BFBB44532C3B907400A2CBB0 /* SceneDelegate.swift */,
-				BFBB44552C3B907400A2CBB0 /* ViewController.swift */,
-				BFBB44572C3B907400A2CBB0 /* Main.storyboard */,
-				BFBB445A2C3B907600A2CBB0 /* Assets.xcassets */,
-				BFBB445C2C3B907600A2CBB0 /* LaunchScreen.storyboard */,
-				BFBB445F2C3B907600A2CBB0 /* Info.plist */,
+				BFD7D3D42C7ED15A00F8DDFB /* MainScreen */,
 				529441182C3EBE8E0080E59E /* MyPlayground.playground */,
-				52380A942C4B8F9C004A546C /* Hello.playground */,
+				BFD7D3D52C7EDE9C00F8DDFB /* TestingCode.playground */,
 			);
 			path = ScanPaymentCard;
+			sourceTree = "<group>";
+		};
+		BFC5D16E2C8033F30057D657 /* CardScanVM */ = {
+			isa = PBXGroup;
+			children = (
+				BFC5D16F2C8034120057D657 /* CardScanVM.swift */,
+			);
+			path = CardScanVM;
+			sourceTree = "<group>";
+		};
+		BFC8BAF42C7ECF5F00894CBB /* Extension+ */ = {
+			isa = PBXGroup;
+			children = (
+				525E5F012C7CCD1E00FBAECF /* PreviewUIKit+.swift */,
+				BFBE54BE2C7DCAA60027814A /* Extension+.swift */,
+				BF7A7B912C805DD400D8427E /* DateExtensions.swift */,
+			);
+			path = "Extension+";
+			sourceTree = "<group>";
+		};
+		BFD7D3D22C7ED13D00F8DDFB /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				BFBB44512C3B907400A2CBB0 /* AppDelegate.swift */,
+				BFBB44532C3B907400A2CBB0 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		BFD7D3D32C7ED14C00F8DDFB /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BFBB445A2C3B907600A2CBB0 /* Assets.xcassets */,
+				BFBB445C2C3B907600A2CBB0 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		BFD7D3D42C7ED15A00F8DDFB /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BFBB44552C3B907400A2CBB0 /* ViewController.swift */,
+				BFBB44572C3B907400A2CBB0 /* Main.storyboard */,
+			);
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,7 +179,7 @@
 			);
 			name = ScanPaymentCard;
 			packageProductDependencies = (
-				BFBE54B62C7DC3B90027814A /* SharkUtils */,
+				BF7A7B8F2C80554200D8427E /* SharkUtils */,
 			);
 			productName = ScanPaymentCard;
 			productReference = BFBB444E2C3B907400A2CBB0 /* ScanPaymentCard.app */;
@@ -155,7 +210,7 @@
 			);
 			mainGroup = BFBB44452C3B907400A2CBB0;
 			packageReferences = (
-				BFBE54B52C7DC3B90027814A /* XCRemoteSwiftPackageReference "ios-shark-utils" */,
+				BF7A7B8E2C80554200D8427E /* XCRemoteSwiftPackageReference "ios-shark-utils" */,
 			);
 			productRefGroup = BFBB444F2C3B907400A2CBB0 /* Products */;
 			projectDirPath = "";
@@ -184,15 +239,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFC5D16D2C8031A30057D657 /* CardScanner.swift in Sources */,
+				BF7A7B942C805F5A00D8427E /* ScannedCardView.swift in Sources */,
+				BFC5D1722C8034F90057D657 /* PixelBufferStream.swift in Sources */,
+				BFC5D1742C8037090057D657 /* LayoutContentView.swift in Sources */,
 				BFBE54B92C7DC4820027814A /* CustomProtocols.swift in Sources */,
 				525E5F022C7CCD1E00FBAECF /* PreviewUIKit+.swift in Sources */,
-				BFBE54BD2C7DCA7A0027814A /* CardCheck.swift in Sources */,
 				BFBE54BF2C7DCAA60027814A /* Extension+.swift in Sources */,
 				BFBB44562C3B907400A2CBB0 /* ViewController.swift in Sources */,
 				BFBE54C12C7DD40D0027814A /* SharkCardScanVC.swift in Sources */,
 				BFBB44522C3B907400A2CBB0 /* AppDelegate.swift in Sources */,
+				BFC5D1702C8034120057D657 /* CardScanVM.swift in Sources */,
 				BFBE54BB2C7DC55B0027814A /* CameraAccess.swift in Sources */,
 				BFBB44542C3B907400A2CBB0 /* SceneDelegate.swift in Sources */,
+				BF7A7B922C805DD400D8427E /* DateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,20 +481,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		BFBE54B52C7DC3B90027814A /* XCRemoteSwiftPackageReference "ios-shark-utils" */ = {
+		BF7A7B8E2C80554200D8427E /* XCRemoteSwiftPackageReference "ios-shark-utils" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/gymshark/ios-shark-utils.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.6;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BFBE54B62C7DC3B90027814A /* SharkUtils */ = {
+		BF7A7B8F2C80554200D8427E /* SharkUtils */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = BFBE54B52C7DC3B90027814A /* XCRemoteSwiftPackageReference "ios-shark-utils" */;
+			package = BF7A7B8E2C80554200D8427E /* XCRemoteSwiftPackageReference "ios-shark-utils" */;
 			productName = SharkUtils;
 		};
 /* End XCSwiftPackageProductDependency section */

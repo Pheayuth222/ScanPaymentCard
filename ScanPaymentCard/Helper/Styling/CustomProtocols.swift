@@ -21,3 +21,13 @@ protocol CardScanStyling {
     
     var backgroundColor: UIColor { get set }
 }
+
+struct DefaultStyling: CardScanStyling {
+    public var instructionLabelStyling: LabelStyling = (font: UIFont.boldSystemFont(ofSize: 14), color: .black)
+    public var cardNumberLabelStyling: LabelStyling = (font: UIFont.systemFont(ofSize: 28), color: .white)
+    public var expiryLabelStyling: LabelStyling = (font: UIFont.systemFont(ofSize: 14), color: .white)
+    public var holderLabelStyling: LabelStyling = (font: UIFont.systemFont(ofSize: 14), color: .white)
+    public var backgroundColor: UIColor = .white
+    
+    public init () { }
+}

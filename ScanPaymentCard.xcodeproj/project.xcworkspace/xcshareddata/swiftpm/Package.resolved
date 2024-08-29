@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/gymshark/ios-shark-utils.git",
       "state" : {
-        "revision" : "aef1ed76f2d69b8be1c0a0ed664dfad2fd55aa1f",
-        "version" : "1.0.6"
+        "branch" : "master",
+        "revision" : "7bffb281655d641ec82f9725ab1901b402a5a8a8"
       }
     }
   ],
