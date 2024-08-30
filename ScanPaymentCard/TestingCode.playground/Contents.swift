@@ -1,225 +1,71 @@
-//
-////
-////  ObjectiveLuhn.swift
-////  Example Project
-////
-////  Created by Max Kramer on 29/03/2016.
-////  Copyright © 2016 Max Kramer. All rights reserved.
-////
-//
-//import Foundation
-//
-//public extension String {
-//    func isValidCardNumber() -> Bool {
-//        do {
-//            try SwiftLuhn.performLuhnAlgorithm(with: self)
-//            return true
-//        }
-//        catch {
-//            return false
-//        }
-//    }
-//    
-//    func cardType() -> SwiftLuhn.CardType? {
-//        let cardType = try? SwiftLuhn.cardType(for: self)
-//        return cardType
-//    }
-//    func suggestedCardType() -> SwiftLuhn.CardType? {
-//        let cardType = try? SwiftLuhn.cardType(for: self, suggest: true)
-//        return cardType
-//    }
-//    
-//    func formattedCardNumber() -> String {
-//        let numbersOnlyEquivalent = replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression, range: nil)
-//        return numbersOnlyEquivalent.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-//    }
-//}
-//
-//open class SwiftLuhn {
-//    public enum CardType: Int {
-//        case amex = 0
-//        case visa
-//        case mastercard
-//        case discover
-//        case dinersClub
-//        case jcb
-//        case maestro
-//        case rupay
-//        case mir
-//    }
-//    
-//    public enum CardError: Error {
-//        case unsupported
-//        case invalid
-//    }
-//    
-//    fileprivate class func regularExpression(for cardType: CardType) -> String {
-//        switch cardType {
-//        case .amex:
-//            return "^3[47][0-9]{5,}$"
-//        case .dinersClub:
-//            return "^3(?:0[0-5]|[68][0-9])[0-9]{4,}$"
-//        case .discover:
-//            return "^6(?:011|5[0-9]{2})[0-9]{3,}$"
-//        case .jcb:
-//            return "^(?:2131|1800|35[0-9]{3})[0-9]{3,}$"
-//        case .mastercard:
-//            return "^5[1-5][0-9]{5,}|222[1-9][0-9]{3,}|22[3-9][0-9]{4,}|2[3-6][0-9]{5,}|27[01][0-9]{4,}|2720[0-9]{3,}$"
-//        case .visa:
-//            return "^4[0-9]{6,}$"
-//        case .maestro:
-//            return "^(5018|5020|5038|6304|6759|6761|6763)[0-9]{8,15}$"
-//        case .rupay:
-//            return "^6[0-9]{15}$"
-//        case .mir:
-//            return "^220[0-9]{13}$"
-//        }
-//    }
-//    
-//    fileprivate class func suggestionRegularExpression(for cardType: CardType) -> String {
-//        switch cardType {
-//        case .amex:
-//            return "^3[47][0-9]+$"
-//        case .dinersClub:
-//            return "^3(?:0[0-5]|[68][0-9])[0-9]+$"
-//        case .discover:
-//            return "^6(?:011|5[0-9]{2})[0-9]+$"
-//        case .jcb:
-//            return "^(?:2131|1800|35[0-9]{3})[0-9]+$"
-//        case .mastercard:
-//            return "^5[1-5][0-9]{5,}|222[1-9][0-9]{3,}|22[3-9][0-9]{4,}|2[3-6][0-9]{5,}|27[01][0-9]{4,}|2720[0-9]{3,}$"
-//        case .visa:
-//            return "^4[0-9]+$"
-//        case .maestro:
-//            return "^(5018|5020|5038|6304|6759|6761|6763)[0-9]+$"
-//        case .rupay:
-//            return "^6[0-9]+$"
-//        case .mir:
-//            return "^220[0-9]+$"
-//        }
-//    }
-//    
-//    class func performLuhnAlgorithm(with cardNumber: String) throws {
-//        
-//        let formattedCardNumber = cardNumber.formattedCardNumber()
-//        
-//        guard formattedCardNumber.count >= 9 else {
-//            throw CardError.invalid
-//        }
-//        
-//        let originalCheckDigit = formattedCardNumber.last!
-//        let characters = formattedCardNumber.dropLast().reversed()
-//        
-//        var digitSum = 0
-//        
-//        for (idx, character) in characters.enumerated() {
-//            let value = Int(String(character)) ?? 0
-//            if idx % 2 == 0 {
-//                var product = value * 2
-//                
-//                if product > 9 {
-//                    product = product - 9
-//                }
-//                
-//                digitSum = digitSum + product
-//            }
-//            else {
-//                digitSum = digitSum + value
-//            }
-//        }
-//        
-//        digitSum = digitSum * 9
-//        
-//        let computedCheckDigit = digitSum % 10
-//        
-//        let originalCheckDigitInt = Int(String(originalCheckDigit))
-//        let valid = originalCheckDigitInt == computedCheckDigit
-//        
-//        if valid == false {
-//            throw CardError.invalid
-//        }
-//    }
-//    
-//    class func cardType(for cardNumber: String, suggest: Bool = false) throws -> CardType {
-//        var foundCardType: CardType?
-//        
-//        for i in CardType.amex.rawValue...CardType.jcb.rawValue {
-//            let cardType = CardType(rawValue: i)!
-//            print(cardType)
-//            let regex = suggest ? suggestionRegularExpression(for: cardType) : regularExpression(for: cardType)
-//            
-//            let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
-//            
-//            if predicate.evaluate(with: cardNumber) == true {
-//                foundCardType = cardType
-//                break
-//            }
-//        }
-//        
-//        if foundCardType == nil {
-//            throw CardError.invalid
-//        }
-//        print(foundCardType!)
-//        return foundCardType!
-//    }
-//}
-//
-//public extension SwiftLuhn.CardType {
-//    func stringValue() -> String {
-//        switch self {
-//        case .amex:
-//            return "American Express"
-//        case .visa:
-//            return "Visa"
-//        case .mastercard:
-//            return "Mastercard"
-//        case .discover:
-//            return "Discover"
-//        case .dinersClub:
-//            return "Diner's Club"
-//        case .jcb:
-//            return "JCB"
-//        case .maestro:
-//            return "Maestro"
-//        case .rupay:
-//            return "Rupay"
-//        case .mir:
-//            return "Mir"
-//        }
-//    }
-//    
-//    init?(string: String) {
-//        switch string.lowercased() {
-//        case "american express":
-//            self.init(rawValue: 0)
-//        case "visa":
-//            self.init(rawValue: 1)
-//        case "mastercard":
-//            self.init(rawValue: 2)
-//        case "discover":
-//            self.init(rawValue: 3)
-//        case "diner's club":
-//            self.init(rawValue: 4)
-//        case "jcb":
-//            self.init(rawValue: 5)
-//        case "maestro":
-//            self.init(rawValue: 6)
-//        case "rupay":
-//            self.init(rawValue: 7)
-//        case "mir":
-//            self.init(rawValue: 8)
-//        default:
-//            return nil
-//        }
-//    }
-//}
-//
-////let cardNumber = CardCheck.hasValidLuhnChecksum("6011497870742170")
-////print(cardNumber)
-////print(luhnCheck(cardNumber: "6011497870742170"))
-//
-//let cardNumber = "4532238327413".isValidCardNumber()
-//print(cardNumber)
-//
-var month = "12/25"
-print(month.suffix(2))
+import Foundation
+
+enum CardType: String {
+    case visa             = "Visa"
+    case masterCard       = "MasterCard"
+    case americanExpress  = "American Express"
+    case discover         = "Discover"
+    case dinersClub       = "Diners Club"
+    case jcb              = "JCB"
+    case unionPay         = "UnionPay"
+    case maestro          = "Maestro"
+    case unknown          = "Unknown"
+}
+
+func detectCardType(cardNumber: String) -> CardType {
+    // Remove any non-digit characters (e.g., spaces, hyphens)
+    let sanitizedCardNumber = cardNumber.replacingOccurrences(of: "\\D", with: "", options: .regularExpression)
+    
+    // Visa: Starts with 4, 13 or 16 digits long
+    let visaRegex = "^4[0-9]{12}(?:[0-9]{3})?$"
+    
+    // MasterCard: Starts with 51-55 or 2221-2720, 16 digits long
+    let masterCardRegex = "^(5[1-5][0-9]{14}|2(?:2[2-9][1-9][0-9]{2}|[3-6][0-9]{4}|7[0-1][0-9]{3}|720[0-9]{2}))$"
+    
+    // American Express: Starts with 34 or 37, 15 digits long
+    let amexRegex = "^3[47][0-9]{13}$"
+    
+    // Discover: Starts with 6011, 622126-622925, 644-649, or 65, 16 digits long
+    let discoverRegex = "^6(?:011|5[0-9]{2}|4[4-9][0-9]|22[1-9][0-9]{2}|22[2-8][0-9]{1}[0-9]|229[0-2][0-9]|2293[0-5])\\d{10}$"
+    
+    // Diners Club: Starts with 300-305, 36, or 38, 14 digits long
+    let dinersClubRegex = "^3(?:0[0-5]|[68][0-9])[0-9]{11}$"
+    
+    // JCB: Starts with 3528-3589, 16 to 19 digits long
+    let jcbRegex = "^(?:2131|1800|35\\d{3})\\d{11,15}$"
+    
+    // UnionPay: Starts with 62, 16-19 digits long
+    let unionPayRegex = "^62[0-9]{14,17}$"
+    
+    // Maestro: Starts with 50, 56-69, 12 to 19 digits long
+    let maestroRegex = "^(5[06-9][0-9]{4}|6[0-9]{5})[0-9]{0,13}$"
+    
+    // Check each card type
+    if sanitizedCardNumber.range(of: visaRegex, options: .regularExpression) != nil {
+        return .visa
+    } else if sanitizedCardNumber.range(of: masterCardRegex, options: .regularExpression) != nil {
+        return .masterCard
+    } else if sanitizedCardNumber.range(of: amexRegex, options: .regularExpression) != nil {
+        return .americanExpress
+    } else if sanitizedCardNumber.range(of: discoverRegex, options: .regularExpression) != nil {
+        return .discover
+    } else if sanitizedCardNumber.range(of: dinersClubRegex, options: .regularExpression) != nil {
+        return .dinersClub
+    } else if sanitizedCardNumber.range(of: jcbRegex, options: .regularExpression) != nil {
+        return .jcb
+    } else if sanitizedCardNumber.range(of: unionPayRegex, options: .regularExpression) != nil {
+        return .unionPay
+    } else if sanitizedCardNumber.range(of: maestroRegex, options: .regularExpression) != nil {
+        return .maestro
+    } else {
+        return .unknown
+    }
+}
+
+// Example usage
+//let cardNumber = "6221261234567890" // Discover
+//let cardNumber = "4111 1111 1111 1111" // Visa
+let cardNumber = "6212345678901234" // UnionPay
+let cardType = detectCardType(cardNumber: cardNumber)
+
+print("This card is of type: \(cardType.rawValue)")
