@@ -1,3 +1,10 @@
+//
+//  CheckCardTypes.swift
+//  ScanPaymentCard
+//
+//  Created by YuthFight's MacBook Pro  on 30/8/24.
+//
+
 import Foundation
 
 enum CardType: String {
@@ -12,7 +19,7 @@ enum CardType: String {
     case unknown          = "Unknown"
 }
 
-func detectCardTypes(cardNumber: String) -> CardType {
+func detectCardType(cardNumber: String) -> CardType {
     // Remove any non-digit characters (e.g., spaces, hyphens)
     let sanitizedCardNumber = cardNumber.replacingOccurrences(of: "\\D", with: "", options: .regularExpression)
     
@@ -25,10 +32,10 @@ func detectCardTypes(cardNumber: String) -> CardType {
     // American Express: Starts with 34 or 37, 15 digits long
     let amexRegex = "^3[47][0-9]{13}$"
     
-    // Discover: Starts with 6011, 622126-622925, 644-649, or 65, 16 digits long
+  // Discover: Starts with 6011, 622126-622925, 644-649, or 65, 16 digits long
 //    let discoverRegex = "^6(?:011|5[0-9]{2}|4[4-9][0-9]|22[1-9][0-9]{2}|22[2-8][0-9]{1}[0-9]|229[0-2][0-9]|2293[0-5])\\d{10}$"
-  
-    let discoverRegex = "^6(?:011|5[0-9]{2}|22[0-9]{2}|[4-9][0-9]{2})[0-9]{12}$"
+
+  let discoverRegex = "^6(?:011|5[0-9]{2}|22[0-9]{2}|[4-9][0-9]{2})[0-9]{12}$"
     
     // Diners Club: Starts with 300-305, 36, or 38, 14 digits long
     let dinersClubRegex = "^3(?:0[0-5]|[68][0-9])[0-9]{11}$"
@@ -63,12 +70,3 @@ func detectCardTypes(cardNumber: String) -> CardType {
         return .unknown
     }
 }
-
-// Example usage
-//let cardNumber = "6221261234567890" // Discover
-//let cardNumber = "4111 1111 1111 1111" // Visa
-//let cardNumber = "6212345678901234" // UnionPay
-let cardNumber = "6504 8132 6680 8926" // UnionPay
-let cardType = detectCardTypes(cardNumber: cardNumber)
-
-print("This card is of type: \(cardType.rawValue)")

@@ -1,5 +1,5 @@
 {
-  "originHash" : "a9644f0625b7db1f7670bfdd56094fa2eadaef8b4340450756a79b3b02258877",
+  "originHash" : "01de00a912ea4c89e356202a94e2aaedb0d4280f2845a33b2d4dd8f5173c48ef",
   "pins" : [
     {
       "identity" : "ios-shark-utils",
@@ -8,6 +8,15 @@
       "state" : {
         "branch" : "master",
         "revision" : "7bffb281655d641ec82f9725ab1901b402a5a8a8"
+      }
+    },
+    {
+      "identity" : "techtalk_library",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Pheayuth222/TechTalk_Library",
+      "state" : {
+        "branch" : "yuthfight",
+        "revision" : "4bae7df66e4159926c1d2adc8bcf051816e4e642"
       }
     }
   ],

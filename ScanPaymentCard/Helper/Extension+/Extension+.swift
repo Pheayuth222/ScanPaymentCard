@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 // Card Check
 
@@ -29,4 +30,19 @@ struct CardCheck {
         }
         return (sum * 9) % 10 == checksum
     }
+}
+
+extension UILabel {
+  
+  func dropShadowLabel() {
+    
+    self.textColor = .white
+
+    // Set the shadow properties
+    self.layer.shadowColor = UIColor.black.cgColor
+    self.layer.shadowOpacity = 0.5
+    self.layer.shadowOffset = CGSize(width: 2, height: 2)
+    self.layer.shadowRadius = 2
+  }
+  
 }
