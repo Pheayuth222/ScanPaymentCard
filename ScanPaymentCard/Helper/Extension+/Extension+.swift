@@ -36,13 +36,26 @@ extension UILabel {
   
   func dropShadowLabel() {
     
-    self.textColor = .white
+//    self.textColor = .white
 
     // Set the shadow properties
     self.layer.shadowColor = UIColor.black.cgColor
     self.layer.shadowOpacity = 0.5
-    self.layer.shadowOffset = CGSize(width: 2, height: 2)
-    self.layer.shadowRadius = 2
+    self.layer.shadowOffset = CGSize(width: 1, height: 1)
+    self.layer.shadowRadius = 0.8
   }
   
+}
+
+extension UIView {
+  func setGradientBackground(colorTop: UIColor, colorBottom: UIColor) {
+      let gradientLayer = CAGradientLayer()
+      gradientLayer.colors = [colorBottom.cgColor, colorTop.cgColor]
+      gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
+      gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
+      gradientLayer.locations = [0, 1]
+      gradientLayer.frame = bounds
+
+     layer.insertSublayer(gradientLayer, at: 0)
+  }
 }

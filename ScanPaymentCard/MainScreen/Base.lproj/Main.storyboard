@@ -95,7 +95,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnw-ft-82y">
                                 <rect key="frame" x="0.0" y="587" width="393" height="265"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hCH-JA-TME">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hCH-JA-TME" customClass="CustomBackgroundView" customModule="ScanPaymentCard" customModuleProvider="target">
                                         <rect key="frame" x="14" y="20" width="365" height="225"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chip1" translatesAutoresizingMaskIntoConstraints="NO" id="goz-p3-oN3">
@@ -117,8 +117,8 @@
                                                 <fontDescription key="fontDescription" name="OCRAbyBT-Regular" family="OCR-A BT" pointSize="25"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PLACEHOLDER" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sGn-zP-xSA">
-                                                <rect key="frame" x="40" y="179.33333333333337" width="137.33333333333334" height="25.666666666666657"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name PlaceHolder" placeholder="PLACEHOLDER" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sGn-zP-xSA">
+                                                <rect key="frame" x="40" y="181" width="164" height="24"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -127,7 +127,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="QJ2-BV-bPU">
-                                                <rect key="frame" x="243.33333333333329" y="156.33333333333337" width="81.666666666666657" height="46.666666666666657"/>
+                                                <rect key="frame" x="243.33333333333329" y="158" width="81.666666666666657" height="45"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month / Year" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZl-Dh-20K">
                                                         <rect key="frame" x="0.0" y="0.0" width="81.666666666666671" height="17"/>
@@ -135,8 +135,8 @@
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="07 / 26" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wej-Rn-ldh">
-                                                        <rect key="frame" x="0.0" y="23" width="81.666666666666671" height="23.666666666666671"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="07 / 26" placeholder="07 / 26" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wej-Rn-ldh">
+                                                        <rect key="frame" x="0.0" y="23" width="81.666666666666671" height="22"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="OCRAbyBT-Regular" family="OCR-A BT" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>

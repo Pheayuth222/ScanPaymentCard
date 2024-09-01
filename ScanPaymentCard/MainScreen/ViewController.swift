@@ -17,7 +17,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var monthYearTF: UITextField!
   @IBOutlet weak var numberTextFieldCard: UITextField!
   @IBOutlet weak var cardImageType: UIImageView!
-  @IBOutlet weak var creditCardView: UIView!
+  @IBOutlet weak var creditCardView: CustomBackgroundView!
   
   @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
   
@@ -37,13 +37,17 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     bottomConstraint.constant = 0
     print(detectCardType(cardNumber: "4893 8747 3474 9484"))
-    creditCardView.backgroundColor = .purple
     numberTextFieldCard.keyboardType = .numberPad
     numberCardLabel.font = UIFont(name: "OCR-A BT", size: 30)
     
+    monthYearTF.text = "07 / 26"
+    placeHolderTF.text = "PLACEHOLDER NAME"
+    numberCardLabel.textColor = .white
+    creditCardView.setGradientBackground(colorTop: .black, colorBottom: .black)
     numberCardLabel.dropShadowLabel()
     monthYearLabel.textColor = .white
   }
+  
   
   @objc func openScanCard(_ sender: UIButton) {
     let scannerVC = SharkCardScanVC(viewModel: CardScanVM(noPermissionAction: { [weak self] in
@@ -67,6 +71,7 @@ class ViewController: UIViewController {
     numberTextFieldCard.font = UIFont(name: "OCR-A BT", size: 25)
     placeHolderTF.text = response?.holder ?? ""
     monthYearTF.text = response?.expireDate ?? ""
+    numberCardLabel.text = response?.number ?? ""
     paymentModel[0].responseValue = response?.number ?? ""
     paymentModel[1].monthValue = String(monthPrefix ?? "")
     paymentModel[1].yearValue = String(yearSuffix ?? "")
@@ -151,41 +156,44 @@ extension ViewController : UITableViewDelegate , UITableViewDataSource {
 
 
 class CustomBackgroundView: UIView {
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupBackground()
-    }
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+//    applyGradient()
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+//    applyGradient()
+  }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    if let gradientLayer = self.layer.sublayers?.first as? CAGradientLayer {
+      applyGradient(gradientLayer: gradientLayer)
+       }
+  }
+  
+  private func applyGradient(gradientLayer: CAGradientLayer) {
+    gradientLayer.frame = self.bounds
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupBackground()
-    }
+    // Set the colors for the gradient
+    gradientLayer.colors = [
+      UIColor.red.cgColor,      // Start color
+      UIColor.blue.cgColor      // End color
+    ]
     
-    private func setupBackground() {
-        // Set up the purple shape
-        let purpleLayer = CAShapeLayer()
-        let purplePath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height), cornerRadius: 20)
-        purpleLayer.path = purplePath.cgPath
-        purpleLayer.fillColor = UIColor.systemPurple.cgColor
-        
-        // Set up the blue shape
-        let blueLayer = CAShapeLayer()
-        let bluePath = UIBezierPath(roundedRect: CGRect(x: self.frame.width / 2, y: self.frame.height / 2, width: self.frame.width / 2, height: self.frame.height / 2), cornerRadius: 20)
-        blueLayer.path = bluePath.cgPath
-        blueLayer.fillColor = UIColor.systemTeal.cgColor
-        
-        // Set up the peach shape
-        let peachLayer = CAShapeLayer()
-        let peachPath = UIBezierPath(roundedRect: CGRect(x: self.frame.width / 4, y: self.frame.height / 2, width: self.frame.width / 2, height: self.frame.height / 2), cornerRadius: 20)
-        peachLayer.path = peachPath.cgPath
-        peachLayer.fillColor = UIColor.systemPink.cgColor
-        
-        // Add layers to the view
-        self.layer.addSublayer(purpleLayer)
-        self.layer.addSublayer(blueLayer)
-        self.layer.addSublayer(peachLayer)
-    }
+    // Optionally set the locations for color change
+    gradientLayer.locations = [0.0, 1.0]
+    
+    // Optionally set the start and end points for the gradient direction
+    gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)   // Top left
+    gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)     // Bottom right
+    
+    // Add the gradient layer to the view's layer
+    self.layer.insertSublayer(gradientLayer, at: 0)
+  }
+  
 }
 
 
