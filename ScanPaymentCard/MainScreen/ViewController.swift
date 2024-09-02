@@ -35,25 +35,49 @@ class ViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    bottomConstraint.constant = 0
+//    bottomConstraint.constant = 0
     print(detectCardType(cardNumber: "4893 8747 3474 9484"))
     numberTextFieldCard.keyboardType = .numberPad
     numberCardLabel.font = UIFont(name: "OCR-A BT", size: 30)
     
     monthYearTF.text = "07 / 26"
     placeHolderTF.text = "PLACEHOLDER NAME"
-    numberCardLabel.textColor = .white
-    creditCardView.setGradientBackground(colorTop: .black, colorBottom: .black)
+    numberCardLabel.applyGradientToCharacters(colors: [
+        UIColor(white: 0.9, alpha: 1.0),  // Bright streak
+        UIColor(white: 0.9, alpha: 1.0),  // Medium gray
+        UIColor(white: 0.7, alpha: 1.0),  // Darker gray
+        UIColor(white: 0.9, alpha: 1.0),  // Medium gray
+        UIColor(white: 0.9, alpha: 1.0)   // Bright streak
+      ])
+    addImageAsBg()
+      
+//    creditCardView.setGradientBackground(colorTop: .black, colorBottom: .black)
     numberCardLabel.dropShadowLabel()
     monthYearLabel.textColor = .white
   }
-  
+    
+    private func addImageAsBg() {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.image = UIImage(named: "card6")
+        imageView.setCornerRadius(15, corners: .all)
+        creditCardView.backgroundColor = .clear
+        creditCardView.insertSubview(imageView, at: 0)
+        NSLayoutConstraint.activate([
+            imageView.leadingAnchor.constraint(equalTo: creditCardView.leadingAnchor,constant: 0),
+            imageView.trailingAnchor.constraint(equalTo: creditCardView.trailingAnchor,constant: 0),
+            imageView.topAnchor.constraint(equalTo: creditCardView.topAnchor,constant: 0),
+            imageView.bottomAnchor.constraint(equalTo: creditCardView.bottomAnchor,constant: 0),
+        ])
+    }
   
   @objc func openScanCard(_ sender: UIButton) {
     let scannerVC = SharkCardScanVC(viewModel: CardScanVM(noPermissionAction: { [weak self] in
       self?.showNoPermissionAlert()
     }, successHandler: { (response) in
       self.cardResponseData = response
+        self.bottomConstraint.constant = 0
       self.updatePaymentModelWithCardData(response: response)
     }))
     self.present(scannerVC, animated: true, completion: nil)
@@ -154,46 +178,80 @@ extension ViewController : UITableViewDelegate , UITableViewDataSource {
   
 }
 
+extension UILabel {
+    func applyGradientToCharacters(colors: [UIColor]) {
+        guard let text = self.text else { return }
+        let attributedString = NSMutableAttributedString(string: text)
+        
+        for i in 0..<text.count {
+            let range = NSRange(location: i, length: 1)
+            let character = (text as NSString).substring(with: range)
+            
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.colors = colors.map { $0.cgColor }
+            
+            // Set the gradient direction to topTrailing
+            gradientLayer.startPoint = CGPoint(x: 0.5, y: 0) // Bottom-left
+            gradientLayer.endPoint = CGPoint(x: 0.5, y: 1) // Top-right
+//            gradientLayer.type = .axial
+            
+            let textSize = (character as NSString).size(withAttributes: [NSAttributedString.Key.font: self.font!])
+            gradientLayer.frame = CGRect(origin: .zero, size: textSize)
+            
+            UIGraphicsBeginImageContextWithOptions(textSize, false, 0)
+            gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+            let gradientImage = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            
+            let textColor = UIColor(patternImage: gradientImage)
+            attributedString.addAttribute(.foregroundColor, value: textColor, range: range)
+        }
+        
+        self.attributedText = attributedString
+    }
+}
+
+
 
 class CustomBackgroundView: UIView {
-  
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-//    applyGradient()
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-//    applyGradient()
-  }
-  
-  override func layoutSubviews() {
-    super.layoutSubviews()
-    if let gradientLayer = self.layer.sublayers?.first as? CAGradientLayer {
-      applyGradient(gradientLayer: gradientLayer)
-       }
-  }
-  
-  private func applyGradient(gradientLayer: CAGradientLayer) {
-    gradientLayer.frame = self.bounds
     
-    // Set the colors for the gradient
-    gradientLayer.colors = [
-      UIColor.red.cgColor,      // Start color
-      UIColor.blue.cgColor      // End color
-    ]
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        //    applyGradient()
+    }
     
-    // Optionally set the locations for color change
-    gradientLayer.locations = [0.0, 1.0]
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        //    applyGradient()
+    }
     
-    // Optionally set the start and end points for the gradient direction
-    gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)   // Top left
-    gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)     // Bottom right
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if let gradientLayer = self.layer.sublayers?.first as? CAGradientLayer {
+            applyGradient(gradientLayer: gradientLayer)
+        }
+    }
     
-    // Add the gradient layer to the view's layer
-    self.layer.insertSublayer(gradientLayer, at: 0)
-  }
-  
+    private func applyGradient(gradientLayer: CAGradientLayer) {
+        gradientLayer.frame = self.bounds
+        
+        // Set the colors for the gradient
+        gradientLayer.colors = [
+            UIColor.red.cgColor,      // Start color
+            UIColor.blue.cgColor      // End color
+        ]
+        
+        // Optionally set the locations for color change
+        gradientLayer.locations = [0.0, 1.0]
+        
+        // Optionally set the start and end points for the gradient direction
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)   // Top left
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)     // Bottom right
+        
+        // Add the gradient layer to the view's layer
+        self.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
 }
 
 
@@ -207,32 +265,35 @@ class YourCustomTableCell: UITableViewCell {
   
   @IBOutlet weak var cameraButton: UIButton!
   
-  
-  func configCell(data: PaymentModel, indexPath: IndexPath,cardResponse: PaymentModel?) {
-    titleLabel.text = data.title
-    monthTF.placeholder = data.placeholder
-    if let cardResponse = cardResponse {
-      yearTF.text = cardResponse.yearValue ?? ""
-      monthTF.text = cardResponse.monthValue ?? ""
-      if indexPath.row == 0 {
-        monthTF.text = cardResponse.responseValue ?? ""
-      }
+    
+    func configCell(data: PaymentModel, indexPath: IndexPath,cardResponse: PaymentModel?) {
+        titleLabel.text = data.title
+        monthTF.placeholder = data.placeholder
+        
+        yearTF.placeholder = data.placeholderYYYY
+        monthTF.keyboardType = .numberPad
+        monthTF.returnKeyType = .next
+        yearTF.keyboardType = .numberPad
+        cameraButton.isHidden = indexPath.row != 0
+        
+        monthTF.font = UIFont(name: "OCR-A BT", size: 20)
+        yearTF.font = UIFont(name: "OCR-A BT", size: 20)
+        
+        if let cardResponse = cardResponse {
+            yearTF.text = cardResponse.yearValue ?? ""
+            monthTF.text = cardResponse.monthValue ?? ""
+            if indexPath.row == 0 {
+                monthTF.text = cardResponse.responseValue ?? ""
+            }
+        }
+        if indexPath.row != 1 {
+            slashLabel.isHidden = true
+            yearTF.isHidden = true
+        } else {
+            slashLabel.isHidden = false
+            yearTF.isHidden = false
+        }
     }
-    yearTF.placeholder = data.placeholderYYYY
-    monthTF.keyboardType = .numberPad
-    monthTF.returnKeyType = .next
-    yearTF.keyboardType = .numberPad
-    cameraButton.isHidden = indexPath.row != 0
-    if indexPath.row != 1 {
-      slashLabel.isHidden = true
-      yearTF.isHidden = true
-    } else {
-      slashLabel.isHidden = false
-      yearTF.isHidden = false
-    }
-    monthTF.font = UIFont(name: "OCR-A BT", size: 20)
-    yearTF.font = UIFont(name: "OCR-A BT", size: 20)
-  }
   
 }
 

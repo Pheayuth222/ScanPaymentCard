@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		520EA4772C8425D90047F53C /* PaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 520EA4762C8425D90047F53C /* PaymentModel.swift */; };
 		5238EBF52C809F5E002900CE /* SharkUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 5238EBF42C809F5E002900CE /* SharkUtils */; };
-		5238EBF72C80A027002900CE /* OCR-a___.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5238EBF62C80A027002900CE /* OCR-a___.ttf */; };
 		525C7BE12C82277000214E7D /* CheckCardTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525C7BE02C82277000214E7D /* CheckCardTypes.swift */; };
 		525E5F022C7CCD1E00FBAECF /* PreviewUIKit+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525E5F012C7CCD1E00FBAECF /* PreviewUIKit+.swift */; };
 		528F459C2C82154F0092A9BF /* TechTalk_Library in Frameworks */ = {isa = PBXBuildFile; productRef = 528F459B2C82154F0092A9BF /* TechTalk_Library */; };
@@ -25,6 +24,7 @@
 		BFBE54BB2C7DC55B0027814A /* CameraAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE54BA2C7DC55B0027814A /* CameraAccess.swift */; };
 		BFBE54BF2C7DCAA60027814A /* Extension+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE54BE2C7DCAA60027814A /* Extension+.swift */; };
 		BFBE54C12C7DD40D0027814A /* SharkCardScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBE54C02C7DD40D0027814A /* SharkCardScanVC.swift */; };
+		BFBF74382C8565AC00A9EF7A /* OCR-a___.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFBF74372C8565AC00A9EF7A /* OCR-a___.ttf */; };
 		BFC5D16D2C8031A30057D657 /* CardScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC5D16C2C8031A30057D657 /* CardScanner.swift */; };
 		BFC5D1702C8034120057D657 /* CardScanVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC5D16F2C8034120057D657 /* CardScanVM.swift */; };
 		BFC5D1722C8034F90057D657 /* PixelBufferStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC5D1712C8034F90057D657 /* PixelBufferStream.swift */; };
@@ -33,7 +33,6 @@
 
 /* Begin PBXFileReference section */
 		520EA4762C8425D90047F53C /* PaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModel.swift; sourceTree = "<group>"; };
-		5238EBF62C80A027002900CE /* OCR-a___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OCR-a___.ttf"; path = "../../../../../Desktop/OCR-a___.ttf"; sourceTree = "<group>"; };
 		525C7BE02C82277000214E7D /* CheckCardTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckCardTypes.swift; sourceTree = "<group>"; };
 		525E5F012C7CCD1E00FBAECF /* PreviewUIKit+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewUIKit+.swift"; sourceTree = "<group>"; };
 		529441182C3EBE8E0080E59E /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -51,6 +50,7 @@
 		BFBE54BA2C7DC55B0027814A /* CameraAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraAccess.swift; sourceTree = "<group>"; };
 		BFBE54BE2C7DCAA60027814A /* Extension+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+.swift"; sourceTree = "<group>"; };
 		BFBE54C02C7DD40D0027814A /* SharkCardScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharkCardScanVC.swift; sourceTree = "<group>"; };
+		BFBF74372C8565AC00A9EF7A /* OCR-a___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OCR-a___.ttf"; sourceTree = "<group>"; };
 		BFC5D16C2C8031A30057D657 /* CardScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScanner.swift; sourceTree = "<group>"; };
 		BFC5D16F2C8034120057D657 /* CardScanVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScanVM.swift; sourceTree = "<group>"; };
 		BFC5D1712C8034F90057D657 /* PixelBufferStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelBufferStream.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 		BFD7D3D32C7ED14C00F8DDFB /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				5238EBF62C80A027002900CE /* OCR-a___.ttf */,
+				BFBF74372C8565AC00A9EF7A /* OCR-a___.ttf */,
 				BFBB445A2C3B907600A2CBB0 /* Assets.xcassets */,
 				BFBB445C2C3B907600A2CBB0 /* LaunchScreen.storyboard */,
 			);
@@ -247,10 +247,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFBF74382C8565AC00A9EF7A /* OCR-a___.ttf in Resources */,
 				BFBB445B2C3B907600A2CBB0 /* Assets.xcassets in Resources */,
 				BFBB445E2C3B907600A2CBB0 /* Base in Resources */,
 				BFBB44592C3B907400A2CBB0 /* Base in Resources */,
-				5238EBF72C80A027002900CE /* OCR-a___.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

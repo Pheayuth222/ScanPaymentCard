@@ -35,7 +35,7 @@ struct CardCheck {
 extension UILabel {
   
   func dropShadowLabel() {
-    
+      
 //    self.textColor = .white
 
     // Set the shadow properties
@@ -48,6 +48,7 @@ extension UILabel {
 }
 
 extension UIView {
+    
   func setGradientBackground(colorTop: UIColor, colorBottom: UIColor) {
       let gradientLayer = CAGradientLayer()
       gradientLayer.colors = [colorBottom.cgColor, colorTop.cgColor]
@@ -55,7 +56,8 @@ extension UIView {
       gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
       gradientLayer.locations = [0, 1]
       gradientLayer.frame = bounds
-
+      gradientLayer.cornerRadius = 15
      layer.insertSublayer(gradientLayer, at: 0)
   }
+    
 }
