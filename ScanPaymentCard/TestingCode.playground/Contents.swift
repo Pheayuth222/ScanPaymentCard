@@ -68,7 +68,19 @@ func detectCardTypes(cardNumber: String) -> CardType {
 //let cardNumber = "6221261234567890" // Discover
 //let cardNumber = "4111 1111 1111 1111" // Visa
 //let cardNumber = "6212345678901234" // UnionPay
-let cardNumber = "6504 8132 6680 8926" // UnionPay
+let cardNumber = "6504 8132 6680 8926"
 let cardType = detectCardTypes(cardNumber: cardNumber)
 
 print("This card is of type: \(cardType.rawValue)")
+
+func maskCreditCardNumber(_ cardNumber: String) -> String {
+    let components = cardNumber.split(separator: " ")
+    guard components.count == 4 else { return cardNumber }
+    print("components \(components)")
+    print("cardNumber \(cardNumber)")
+    let maskedMiddle = "**** ****"
+    return "\(components[0]) \(maskedMiddle) \(components[3])"
+}
+
+let maskedCardNumber = maskCreditCardNumber(cardNumber)
+print(maskedCardNumber)

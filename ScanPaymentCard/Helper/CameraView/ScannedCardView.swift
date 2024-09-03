@@ -55,7 +55,7 @@ internal final class ScannedCardView: UIView {
         
         layer.cornerRadius = 10
         layer.borderWidth = 3
-        layer.borderColor = UIColor.white.cgColor
+        layer.borderColor = UIColor.white.cgColor // Border Color frame Scanner
         withAspectRatio(cardAspectRatio)
         
         withCenteredContent {[

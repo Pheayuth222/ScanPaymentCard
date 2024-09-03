@@ -11,7 +11,6 @@
 		5238EBF52C809F5E002900CE /* SharkUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 5238EBF42C809F5E002900CE /* SharkUtils */; };
 		525C7BE12C82277000214E7D /* CheckCardTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525C7BE02C82277000214E7D /* CheckCardTypes.swift */; };
 		525E5F022C7CCD1E00FBAECF /* PreviewUIKit+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525E5F012C7CCD1E00FBAECF /* PreviewUIKit+.swift */; };
-		528F459C2C82154F0092A9BF /* TechTalk_Library in Frameworks */ = {isa = PBXBuildFile; productRef = 528F459B2C82154F0092A9BF /* TechTalk_Library */; };
 		BF7A7B922C805DD400D8427E /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A7B912C805DD400D8427E /* DateExtensions.swift */; };
 		BF7A7B942C805F5A00D8427E /* ScannedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A7B932C805F5A00D8427E /* ScannedCardView.swift */; };
 		BFBB44522C3B907400A2CBB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB44512C3B907400A2CBB0 /* AppDelegate.swift */; };
@@ -29,6 +28,9 @@
 		BFC5D1702C8034120057D657 /* CardScanVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC5D16F2C8034120057D657 /* CardScanVM.swift */; };
 		BFC5D1722C8034F90057D657 /* PixelBufferStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC5D1712C8034F90057D657 /* PixelBufferStream.swift */; };
 		BFC5D1742C8037090057D657 /* LayoutContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC5D1732C8037090057D657 /* LayoutContentView.swift */; };
+		BFF029F62C86B9BF00E181C8 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF029F52C86B9BF00E181C8 /* UILabel.swift */; };
+		BFF029F82C86BE1E00E181C8 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF029F72C86BE1E00E181C8 /* CustomView.swift */; };
+		BFF029FA2C86CCF300E181C8 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF029F92C86CCF300E181C8 /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,9 @@
 		BFC5D1712C8034F90057D657 /* PixelBufferStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelBufferStream.swift; sourceTree = "<group>"; };
 		BFC5D1732C8037090057D657 /* LayoutContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutContentView.swift; sourceTree = "<group>"; };
 		BFD7D3D52C7EDE9C00F8DDFB /* TestingCode.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestingCode.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		BFF029F52C86B9BF00E181C8 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		BFF029F72C86BE1E00E181C8 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		BFF029F92C86CCF300E181C8 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +68,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				528F459C2C82154F0092A9BF /* TechTalk_Library in Frameworks */,
 				5238EBF52C809F5E002900CE /* SharkUtils in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,9 +92,8 @@
 				BFC5D1712C8034F90057D657 /* PixelBufferStream.swift */,
 				BFC5D1732C8037090057D657 /* LayoutContentView.swift */,
 				BFC5D16C2C8031A30057D657 /* CardScanner.swift */,
-				BFBE54BA2C7DC55B0027814A /* CameraAccess.swift */,
-				BFBE54C02C7DD40D0027814A /* SharkCardScanVC.swift */,
-				BF7A7B932C805F5A00D8427E /* ScannedCardView.swift */,
+				BFF029F32C86B37700E181C8 /* CameraAccess */,
+				BFF029F42C86B38600E181C8 /* CameraView */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -144,10 +147,12 @@
 		BFC8BAF42C7ECF5F00894CBB /* Extension+ */ = {
 			isa = PBXGroup;
 			children = (
+				BFF029F52C86B9BF00E181C8 /* UILabel.swift */,
 				525E5F012C7CCD1E00FBAECF /* PreviewUIKit+.swift */,
 				BFBE54BE2C7DCAA60027814A /* Extension+.swift */,
 				BF7A7B912C805DD400D8427E /* DateExtensions.swift */,
 				525C7BE02C82277000214E7D /* CheckCardTypes.swift */,
+				BFF029F92C86CCF300E181C8 /* UIView.swift */,
 			);
 			path = "Extension+";
 			sourceTree = "<group>";
@@ -174,11 +179,29 @@
 		BFD7D3D42C7ED15A00F8DDFB /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				BFF029F72C86BE1E00E181C8 /* CustomView.swift */,
 				520EA4752C8425C90047F53C /* Model */,
 				BFBB44552C3B907400A2CBB0 /* ViewController.swift */,
 				BFBB44572C3B907400A2CBB0 /* Main.storyboard */,
 			);
 			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		BFF029F32C86B37700E181C8 /* CameraAccess */ = {
+			isa = PBXGroup;
+			children = (
+				BFBE54BA2C7DC55B0027814A /* CameraAccess.swift */,
+			);
+			path = CameraAccess;
+			sourceTree = "<group>";
+		};
+		BFF029F42C86B38600E181C8 /* CameraView */ = {
+			isa = PBXGroup;
+			children = (
+				BFBE54C02C7DD40D0027814A /* SharkCardScanVC.swift */,
+				BF7A7B932C805F5A00D8427E /* ScannedCardView.swift */,
+			);
+			path = CameraView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,7 +222,6 @@
 			name = ScanPaymentCard;
 			packageProductDependencies = (
 				5238EBF42C809F5E002900CE /* SharkUtils */,
-				528F459B2C82154F0092A9BF /* TechTalk_Library */,
 			);
 			productName = ScanPaymentCard;
 			productReference = BFBB444E2C3B907400A2CBB0 /* ScanPaymentCard.app */;
@@ -231,7 +253,6 @@
 			mainGroup = BFBB44452C3B907400A2CBB0;
 			packageReferences = (
 				5238EBF32C809F5E002900CE /* XCRemoteSwiftPackageReference "ios-shark-utils" */,
-				528F459A2C82154F0092A9BF /* XCRemoteSwiftPackageReference "TechTalk_Library" */,
 			);
 			productRefGroup = BFBB444F2C3B907400A2CBB0 /* Products */;
 			projectDirPath = "";
@@ -261,8 +282,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFF029F62C86B9BF00E181C8 /* UILabel.swift in Sources */,
 				BFC5D16D2C8031A30057D657 /* CardScanner.swift in Sources */,
 				BF7A7B942C805F5A00D8427E /* ScannedCardView.swift in Sources */,
+				BFF029F82C86BE1E00E181C8 /* CustomView.swift in Sources */,
 				525C7BE12C82277000214E7D /* CheckCardTypes.swift in Sources */,
 				BFC5D1722C8034F90057D657 /* PixelBufferStream.swift in Sources */,
 				BFC5D1742C8037090057D657 /* LayoutContentView.swift in Sources */,
@@ -272,6 +295,7 @@
 				BFBB44562C3B907400A2CBB0 /* ViewController.swift in Sources */,
 				BFBE54C12C7DD40D0027814A /* SharkCardScanVC.swift in Sources */,
 				BFBB44522C3B907400A2CBB0 /* AppDelegate.swift in Sources */,
+				BFF029FA2C86CCF300E181C8 /* UIView.swift in Sources */,
 				BFC5D1702C8034120057D657 /* CardScanVM.swift in Sources */,
 				520EA4772C8425D90047F53C /* PaymentModel.swift in Sources */,
 				BFBE54BB2C7DC55B0027814A /* CameraAccess.swift in Sources */,
@@ -515,14 +539,6 @@
 				kind = branch;
 			};
 		};
-		528F459A2C82154F0092A9BF /* XCRemoteSwiftPackageReference "TechTalk_Library" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Pheayuth222/TechTalk_Library";
-			requirement = {
-				branch = yuthfight;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -530,11 +546,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5238EBF32C809F5E002900CE /* XCRemoteSwiftPackageReference "ios-shark-utils" */;
 			productName = SharkUtils;
-		};
-		528F459B2C82154F0092A9BF /* TechTalk_Library */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 528F459A2C82154F0092A9BF /* XCRemoteSwiftPackageReference "TechTalk_Library" */;
-			productName = TechTalk_Library;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
