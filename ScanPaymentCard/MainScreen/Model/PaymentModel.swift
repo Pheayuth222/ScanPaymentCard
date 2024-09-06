@@ -18,21 +18,23 @@ import Foundation
 //}
 
 struct PaymentModel {
-    let title: String?
-    var placeholder: String?
-    var placeholderYYYY: String?
-    var responseValue: String?
-    var monthValue: String?
-    var yearValue: String?
+    let title           : String?
+    var placeholder     : String?
+    var placeholderYYYY : String?
+    var responseValue   : String?
+    var monthValue      : String?
+    var yearValue       : String?
+    var tag             : Int?
   
-  init(title: String?, placeholder: String? = nil, placeholderYYYY: String? = nil, responseValue: String? = nil, monthValue: String? = nil, yearValue: String? = nil) {
-    self.title = title
-    self.placeholder = placeholder
-    self.placeholderYYYY = placeholderYYYY
-    self.responseValue = responseValue
-    self.monthValue = monthValue
-    self.yearValue = yearValue
-  }
+    init(title: String?, placeholder: String? = nil, placeholderYYYY: String? = nil, responseValue: String? = nil, monthValue: String? = nil, yearValue: String? = nil, tag: Int? = nil) {
+        self.title = title
+        self.placeholder = placeholder
+        self.placeholderYYYY = placeholderYYYY
+        self.responseValue = responseValue
+        self.monthValue = monthValue
+        self.yearValue = yearValue
+        self.tag = tag
+    }
   
 }
 

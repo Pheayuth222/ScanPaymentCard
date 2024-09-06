@@ -84,3 +84,5 @@ func maskCreditCardNumber(_ cardNumber: String) -> String {
 
 let maskedCardNumber = maskCreditCardNumber(cardNumber)
 print(maskedCardNumber)
+
+let nameStr : [String] = [ "sdfds","yoewrew","erwdfds"]

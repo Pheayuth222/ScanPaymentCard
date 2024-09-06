@@ -13,6 +13,8 @@
 		525E5F022C7CCD1E00FBAECF /* PreviewUIKit+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525E5F012C7CCD1E00FBAECF /* PreviewUIKit+.swift */; };
 		BF7A7B922C805DD400D8427E /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A7B912C805DD400D8427E /* DateExtensions.swift */; };
 		BF7A7B942C805F5A00D8427E /* ScannedCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A7B932C805F5A00D8427E /* ScannedCardView.swift */; };
+		BFB8EAEF2C8A980E00090A14 /* YourCustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB8EAEE2C8A980E00090A14 /* YourCustomTableCell.swift */; };
+		BFB8EAF22C8A997200090A14 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB8EAF12C8A997200090A14 /* PaymentViewModel.swift */; };
 		BFBB44522C3B907400A2CBB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB44512C3B907400A2CBB0 /* AppDelegate.swift */; };
 		BFBB44542C3B907400A2CBB0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB44532C3B907400A2CBB0 /* SceneDelegate.swift */; };
 		BFBB44562C3B907400A2CBB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFBB44552C3B907400A2CBB0 /* ViewController.swift */; };
@@ -41,6 +43,8 @@
 		BF6B69122C7F17E7004021F4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF7A7B912C805DD400D8427E /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		BF7A7B932C805F5A00D8427E /* ScannedCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannedCardView.swift; sourceTree = "<group>"; };
+		BFB8EAEE2C8A980E00090A14 /* YourCustomTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourCustomTableCell.swift; sourceTree = "<group>"; };
+		BFB8EAF12C8A997200090A14 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		BFBB444E2C3B907400A2CBB0 /* ScanPaymentCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScanPaymentCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFBB44512C3B907400A2CBB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFBB44532C3B907400A2CBB0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,12 +92,7 @@
 			children = (
 				BFC8BAF42C7ECF5F00894CBB /* Extension+ */,
 				52E010802C4F465C00BF9A99 /* Styling */,
-				BFC5D16E2C8033F30057D657 /* CardScanVM */,
-				BFC5D1712C8034F90057D657 /* PixelBufferStream.swift */,
-				BFC5D1732C8037090057D657 /* LayoutContentView.swift */,
-				BFC5D16C2C8031A30057D657 /* CardScanner.swift */,
-				BFF029F32C86B37700E181C8 /* CameraAccess */,
-				BFF029F42C86B38600E181C8 /* CameraView */,
+				BFC4CCE12C893F2A0072748A /* CreditScanner */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -104,6 +103,33 @@
 				BFBE54B82C7DC4820027814A /* CustomProtocols.swift */,
 			);
 			path = Styling;
+			sourceTree = "<group>";
+		};
+		BFB8EAF02C8A995900090A14 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BFB8EAF12C8A997200090A14 /* PaymentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BFB8EAF32C8A99A600090A14 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				BFB8EAF42C8A9AC600090A14 /* Cell */,
+				BFF029F72C86BE1E00E181C8 /* CustomView.swift */,
+				BFBB44552C3B907400A2CBB0 /* ViewController.swift */,
+				BFBB44572C3B907400A2CBB0 /* Main.storyboard */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		BFB8EAF42C8A9AC600090A14 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BFB8EAEE2C8A980E00090A14 /* YourCustomTableCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		BFBB44452C3B907400A2CBB0 = {
@@ -136,12 +162,17 @@
 			path = ScanPaymentCard;
 			sourceTree = "<group>";
 		};
-		BFC5D16E2C8033F30057D657 /* CardScanVM */ = {
+		BFC4CCE12C893F2A0072748A /* CreditScanner */ = {
 			isa = PBXGroup;
 			children = (
+				BFF029F32C86B37700E181C8 /* CameraAccess */,
+				BFF029F42C86B38600E181C8 /* CameraView */,
 				BFC5D16F2C8034120057D657 /* CardScanVM.swift */,
+				BFC5D1712C8034F90057D657 /* PixelBufferStream.swift */,
+				BFC5D1732C8037090057D657 /* LayoutContentView.swift */,
+				BFC5D16C2C8031A30057D657 /* CardScanner.swift */,
 			);
-			path = CardScanVM;
+			path = CreditScanner;
 			sourceTree = "<group>";
 		};
 		BFC8BAF42C7ECF5F00894CBB /* Extension+ */ = {
@@ -179,10 +210,9 @@
 		BFD7D3D42C7ED15A00F8DDFB /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				BFF029F72C86BE1E00E181C8 /* CustomView.swift */,
 				520EA4752C8425C90047F53C /* Model */,
-				BFBB44552C3B907400A2CBB0 /* ViewController.swift */,
-				BFBB44572C3B907400A2CBB0 /* Main.storyboard */,
+				BFB8EAF02C8A995900090A14 /* ViewModel */,
+				BFB8EAF32C8A99A600090A14 /* MainView */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -292,6 +322,7 @@
 				BFBE54B92C7DC4820027814A /* CustomProtocols.swift in Sources */,
 				525E5F022C7CCD1E00FBAECF /* PreviewUIKit+.swift in Sources */,
 				BFBE54BF2C7DCAA60027814A /* Extension+.swift in Sources */,
+				BFB8EAEF2C8A980E00090A14 /* YourCustomTableCell.swift in Sources */,
 				BFBB44562C3B907400A2CBB0 /* ViewController.swift in Sources */,
 				BFBE54C12C7DD40D0027814A /* SharkCardScanVC.swift in Sources */,
 				BFBB44522C3B907400A2CBB0 /* AppDelegate.swift in Sources */,
@@ -300,6 +331,7 @@
 				520EA4772C8425D90047F53C /* PaymentModel.swift in Sources */,
 				BFBE54BB2C7DC55B0027814A /* CameraAccess.swift in Sources */,
 				BFBB44542C3B907400A2CBB0 /* SceneDelegate.swift in Sources */,
+				BFB8EAF22C8A997200090A14 /* PaymentViewModel.swift in Sources */,
 				BF7A7B922C805DD400D8427E /* DateExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
